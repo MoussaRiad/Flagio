@@ -1,0 +1,9 @@
+
+:root{
+    --dark-blue-dmode:hsl(209, 23%, 22%);
+    --vdark-blue-dmode:hsl(207, 26%, 17%);
+    --vdark-blue-lmode:hsl(200, 15%, 8%);
+    --dark-gray-lmode:hsl(0, 0%, 52%);
+    --vlight-gray-lmode:hsl(0, 0%, 98%);
+    /* --white:hsl(0, 0%, 100%); */
+}
