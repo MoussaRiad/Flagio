@@ -13,6 +13,11 @@ export default function CountryBox(props) {
   return (<div className={"country-box "+theme+"-mode"} onClick={()=>navigate('/coutry/'+data.cca2)}>
     <div className={"country-flag "+theme+"-mode"}>
         <img src={(data && data.flags)? data.flags.png:""} alt={(data & data.flags)?data.flags.alt:""}/></div>
-    {data.cca2}
+    <div className="country-info">
+        <h5>{(data && data.name)? data.name.common:""}</h5>
+        <p><b>Population:</b>{(data && data.population)? data.population:""}</p>
+        <p><b>Region:</b>{(data && data.region)? data.region:""}</p>
+        <p><b>Capital</b>{(data && data.capital)? data.capital:""}</p>
+    </div>
   </div>);
 }

@@ -30,3 +30,22 @@
   width: 100%;
   height: 100%;
 }
+.country-info{
+    display: flex;
+    flex-direction: column;
+    height: 80px;
+    text-align: left;
+    padding: 30px;
+    padding-top: 10px;
+}
+.country-info *{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.country-info p{
+    font-size: 12px;
+}
+
+.country-info b{
+    padding-right: 10px;
+}
