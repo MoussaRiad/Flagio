@@ -19,10 +19,34 @@ export function DataProvider(props) {
   //             setcountries(response.data);
   //         })
   // }, [])
+
   const getAll = () => {
-    axios.get(`https://restcountries.com/v3.1/all`).then((response) => {
-      setCountries(response.data);
-    });
+    const options = {
+      method: "GET",
+    //   mode: 'no-cors',
+    //   url: "https://ajayakv-rest-countries-v1.p.rapidapi.com/rest/v1/all",
+      url: "https://restcountries.com/v3.1/all",
+      headers: {
+        // "X-RapidAPI-Key": "dc6a936644mshfa37e6ecf200efdp1a96b6jsn793ede38e17d",
+        // "X-RapidAPI-Host": "ajayakv-rest-countries-v1.p.rapidapi.com",
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+      },
+    //   withCredentials: true,
+    //   credentials: 'same-origin',
+    };
+
+    axios
+      .request(options)
+      .then(function (response) {
+        console.log(response.data);
+        setCountries(response.data);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+    // axios.get(`https://restcountries.com/v3.1/all`).then((response) => {
+    // });
   };
   const getByRegion = (region) => {
     axios
@@ -33,18 +57,17 @@ export function DataProvider(props) {
   };
   const getCountry = (name) => {
     axios(`https://restcountries.com/v3.1/name/` + name, {
-        method: 'GET',
-        mode: 'no-cors',
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Content-Type': 'application/json',
-        },
-        withCredentials: false,
-        credentials: 'same-origin',
-      })
-      .then((response) => {
-        setCountry(response.data);
-      });
+      method: "GET",
+      mode: "no-cors",
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+      },
+      withCredentials: false,
+      credentials: "same-origin",
+    }).then((response) => {
+      setCountry(response.data);
+    });
   };
   return (
     <DataContext.Provider
